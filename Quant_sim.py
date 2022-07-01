@@ -24,7 +24,7 @@ def gen_prob_table(prob, bits):
     return table
 
 
-def run(env, bits, dimension, prob, noise_on_inference_only, device):
+def run(task, env, bits, dimension, prob, noise_on_inference_only, device):
 
     history = []
 
@@ -134,6 +134,6 @@ def run_all(dir='./'):
                 filename = f'{dir}01/qhd_{task}_{dimension}_{prob}_results.json'
                 print(filename)
 
-                history = run(env, 3, dimension, prob, True, device)
+                history = run(task, env, 3, dimension, prob, True, device)
                 
                 save_as_json(filename, history)
