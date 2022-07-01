@@ -116,7 +116,7 @@ def run(env, bits, dimension, prob, noise_on_inference_only, device):
     
     return history
 
-def run_all():
+def run_all(dir='./'):
     #device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     device = 'cpu'
 
@@ -131,7 +131,7 @@ def run_all():
         for dimension in dims:
             for prob in probs:
 
-                filename = f'./01/qhd_{task}_{dimension}_{prob}_results.json'
+                filename = f'{dir}01/qhd_{task}_{dimension}_{prob}_results.json'
                 print(filename)
 
                 history = run(env, 3, dimension, prob, True, device)
