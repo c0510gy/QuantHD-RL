@@ -31,7 +31,7 @@ for task in tasks:
         n_actions = env.action_space.n
         n_obs = env.observation_space.shape[0]
         model = QHD_Model(dimension, n_actions, n_obs, epsilon, epsilon_decay,
-                        minimum_epsilon, reward_decay, train_sample_size=ts, lr=0.05, device=device) #lr=0.05
+                        minimum_epsilon, reward_decay, train_sample_size=ts, lr=0.05, device=device, bits=3) #lr=0.05
 
         #with open(filename,'a') as f:
         #    f.write("Episode,Steps,Reward,Runtime\n")
