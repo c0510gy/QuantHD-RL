@@ -116,23 +116,24 @@ def run(env, bits, dimension, prob, noise_on_inference_only, device):
     
     return history
 
-#device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-device = 'cpu'
+def run_all():
+    #device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+    device = 'cpu'
 
-tasks = ['cartpole']
-for task in tasks:
-    if task == 'cartpole':
-        env = gym.make('CartPole-v0')
-    
-    dims = [10000]
-    probs = [0., 0.20, 0.50, 0.90]
+    tasks = ['cartpole']
+    for task in tasks:
+        if task == 'cartpole':
+            env = gym.make('CartPole-v0')
+        
+        dims = [10000]
+        probs = [0., 0.20, 0.50, 0.90]
 
-    for dimension in dims:
-        for prob in probs:
+        for dimension in dims:
+            for prob in probs:
 
-            filename = f'./01/qhd_{task}_{dimension}_{prob}_results.json'
-            print(filename)
+                filename = f'./01/qhd_{task}_{dimension}_{prob}_results.json'
+                print(filename)
 
-            history = run(env, 3, dimension, prob, True, device)
-            
-            save_as_json(filename, history)
+                history = run(env, 3, dimension, prob, True, device)
+                
+                save_as_json(filename, history)
